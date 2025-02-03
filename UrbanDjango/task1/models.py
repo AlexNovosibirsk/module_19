@@ -41,3 +41,20 @@ class Game(models.Model):  # модель представляющая игру.
 # >>> Game.objects.get(id=2).buyer.set((3,2))
 # >>> Game.objects.get(id=1).buyer.set((1,2))
 
+
+# "Пагинация"
+class News(models.Model):
+    title = models.CharField(max_length=100)
+    content = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
+
+
+# После создания модели нужно будет создать миграцию и применить её.
+# python manage.py makemigrations
+# а за тем
+# python manage.py migrate
+# для её применения
+# через shell добавить записи в NEWS
+# >>> News.objects.create(title='Новость 6', content='')
+
+

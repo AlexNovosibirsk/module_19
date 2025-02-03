@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from task1.views import platform, games, cart, sign_up_by_django, sign_up_by_html
+from task1.views import platform, games, cart, sign_up_by_django, sign_up_by_html, news
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,4 +28,7 @@ urlpatterns = [
 
     path('regh/', sign_up_by_html),
     path('regd/', sign_up_by_django),
+
+    # "Пагинация"
+    path('news/', news)
 ]

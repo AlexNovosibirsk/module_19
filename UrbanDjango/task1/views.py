@@ -1,8 +1,9 @@
+from django.core.paginator import Paginator
 from django.http import HttpResponse
 from django.shortcuts import render
 
 from task1.forms import UserRegister
-from task1.models import Game, Buyer
+from task1.models import Game, Buyer, News
 
 users = ["Peter"]
 
@@ -77,3 +78,15 @@ def sign_up_by_django(request):
                 return HttpResponse(f"Приветствуем, {username}!")
 
     return render(request, "task1/registration_page.html", info)
+
+
+# "Пагинация"
+def news(request):
+    news_obj = News.objects.all()
+    paginator = Paginator(news_obj, 3)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    # return render(request, 'task1/index.html')
+    context = {"title": "Новости", 'news': page_obj}
+    return render(request, 'task1/index.html', context)
+    # return render(request, 'task1/news.html', {'page_obj', page_obj})
