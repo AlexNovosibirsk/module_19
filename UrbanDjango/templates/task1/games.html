@@ -1,0 +1,40 @@
+{% extends "task1/menu.html" %}
+
+{% block pagename %}
+<h1>{{ title }}</h1>
+{% endblock %}
+
+{% block content %}
+    <ul>
+        {% for game in games %}
+            <li>
+                {{game.title}} | {{game.description}} Стоимость: {{game.cost}}
+                <button type="button">Купить</button>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Games</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>"Игры"</h1>-->
+<!--    <ul>-->
+<!--        <li>Игра 1<button type="button">Купить</button></li>-->
+<!--        <li>Игра 2<button type="button">Купить</button></li>-->
+<!--        <li>Игра 3<button type="button">Купить</button></li>-->
+
+<!--        {% for i in games %}-->
+<!--            <li>{{i}} <button type="button">Купить</button> </li>-->
+<!--        {% endfor %}-->
+<!--    </ul>-->
+
+<!--    <button type="button" onclick="history.back();">-->
+<!--        Вернуться на главную-->
+<!--    </button>-->
+<!--&lt;!&ndash;    <input type="button" onclick="history.back();" value="Назад"/>&ndash;&gt;-->
+<!--</body>-->
+<!--</html>-->
